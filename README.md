@@ -122,8 +122,8 @@ ThreadSanitizer (26/10/2026):
   connects later gets the latest; server rejects equal or older versions; server restart
   serves the stored version; client starts without a server and catches up when it appears.
 
-CI matrix (`.github/workflows/ci.yml`): Ubuntu (dev and ASan), macOS and Windows/MSVC.
-**Only Linux was run here**; the Windows and macOS paths compile in CI.
+CI matrix (`.github/workflows/ci.yml`): Ubuntu (dev and ASan), macOS and Windows/MSVC —
+all green on 26/10/2026: builds and the 20 tests pass on the three platforms.
 
 ## 6. Limitations and what production needs
 
