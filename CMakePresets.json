@@ -6,39 +6,82 @@
       "displayName": "Debug, Ninja",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/dev",
-      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
     },
     {
       "name": "release",
       "displayName": "Release, Ninja",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/release",
-      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release", "NX_BUILD_TESTS": "OFF" }
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "NX_BUILD_TESTS": "OFF"
+      }
     },
     {
       "name": "asan",
       "displayName": "Debug + ASan/UBSan",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/asan",
-      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug", "NX_SANITIZE": "ON" }
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "NX_SANITIZE": "ON"
+      }
     },
     {
       "name": "msvc",
-      "displayName": "Windows, Visual Studio 2022",
-      "generator": "Visual Studio 17 2022",
+      "displayName": "Windows, newest Visual Studio (CMake default generator)",
       "binaryDir": "${sourceDir}/build/msvc",
-      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" }
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
     }
   ],
   "buildPresets": [
-    { "name": "dev", "configurePreset": "dev" },
-    { "name": "release", "configurePreset": "release" },
-    { "name": "asan", "configurePreset": "asan" },
-    { "name": "msvc", "configurePreset": "msvc", "configuration": "Release" }
+    {
+      "name": "dev",
+      "configurePreset": "dev"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "asan",
+      "configurePreset": "asan"
+    },
+    {
+      "name": "msvc",
+      "configurePreset": "msvc",
+      "configuration": "Release"
+    }
   ],
   "testPresets": [
-    { "name": "dev", "configurePreset": "dev", "output": { "outputOnFailure": true } },
-    { "name": "asan", "configurePreset": "asan", "output": { "outputOnFailure": true } },
-    { "name": "msvc", "configurePreset": "msvc", "configuration": "Release", "output": { "outputOnFailure": true } }
+    {
+      "name": "dev",
+      "configurePreset": "dev",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "asan",
+      "configurePreset": "asan",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "msvc",
+      "configurePreset": "msvc",
+      "configuration": "Release",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
   ]
 }
